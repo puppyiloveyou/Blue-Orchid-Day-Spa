@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Blue Orchid Day Spa | Mansfield, TX</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ivory: #f9f5ef;
+    --ivory-dark: #f0e9de;
+    --parchment: #e8ddd0;
+    --charcoal: #2c2825;
+    --taupe: #6b5f53;
+    --taupe-light: #9c8f82;
+    --orchid: #8b6f7a;
+    --orchid-light: #c4a8b5;
+    --orchid-pale: #f0e8ed;
+    --bronze: #a08060;
+    --white: #fefdfb;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ivory);
+    color: var(--charcoal);
+    font-family: var(--sans);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 48px;
+    background: rgba(249,245,239,0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--parchment);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--charcoal);
+  }
+  .nav-logo span { color: var(--orchid); }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--taupe);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--charcoal); }
+  .nav-cta {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--charcoal);
+    color: var(--ivory);
+    border: none;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--orchid); }
+
+  /* HERO SPLIT */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+  .hero-left {
+    background: var(--charcoal);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left::before {
+    content: '';
+    position: absolute;
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,168,181,0.18);
+    top: -80px; left: -80px;
+  }
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,168,181,0.1);
+    bottom: 60px; right: -60px;
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--orchid-light);
+    margin-bottom: 28px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px; height: 0.5px;
+    background: var(--orchid-light);
+    display: block;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ivory);
+    margin-bottom: 16px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--orchid-light);
+  }
+  .hero-subtitle {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--taupe-light);
+    line-height: 1.7;
+    margin-bottom: 56px;
+    max-width: 360px;
+  }
+
+  .contact-quick { display: flex; flex-direction: column; gap: 0; }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 18px;
+    padding: 20px 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.07);
+  }
+  .contact-item:last-child { border-bottom: none; }
+  .contact-icon {
+    width: 38px; height: 38px;
+    border: 0.5px solid rgba(196,168,181,0.28);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .contact-icon svg { width: 16px; height: 16px; stroke: var(--orchid-light); fill: none; stroke-width: 1.5; }
+  .contact-label {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--taupe-light);
+    margin-bottom: 6px;
+  }
+  .contact-value {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ivory);
+    line-height: 1.55;
+  }
+  .contact-value a { color: inherit; text-decoration: none; }
+  .contact-value a:hover { color: var(--orchid-light); }
+
+  /* FORM SIDE */
+  .hero-right {
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 64px;
+    border-left: 0.5px solid var(--parchment);
+  }
+  .form-header { margin-bottom: 40px; }
+  .form-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orchid);
+    margin-bottom: 16px;
+  }
+  .form-title {
+    font-family: var(--serif);
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .form-desc {
+    font-size: 14px;
+    color: var(--taupe);
+    line-height: 1.8;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--taupe);
+    margin-bottom: 8px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: var(--ivory);
+    border: 0.5px solid var(--parchment);
+    border-radius: 0;
+    padding: 13px 16px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--charcoal);
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--orchid-light);
+    background: var(--orchid-pale);
+  }
+  .form-group textarea { resize: none; height: 96px; line-height: 1.6; }
+  .form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%239c8f82'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--charcoal);
+    color: var(--ivory);
+    border: none;
+    padding: 17px 32px;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s;
+    margin-top: 8px;
+  }
+  .submit-btn:hover { background: var(--orchid); }
+
+  .form-note {
+    text-align: center;
+    font-size: 11px;
+    color: var(--taupe-light);
+    margin-top: 14px;
+    line-height: 1.7;
+  }
+
+  /* TRUST BAR */
+  .trust-bar {
+    background: var(--orchid-pale);
+    border-top: 0.5px solid var(--parchment);
+    border-bottom: 0.5px solid var(--parchment);
+    padding: 30px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .trust-item svg { width: 18px; height: 18px; stroke: var(--orchid); fill: none; stroke-width: 1.5; flex-shrink: 0; }
+  .trust-text { font-size: 12px; color: var(--taupe); letter-spacing: 0.04em; }
+  .trust-sep { width: 0.5px; height: 28px; background: var(--parchment); }
+
+  /* HOURS + MAP */
+  .info-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .hours-panel {
+    background: var(--ivory-dark);
+    padding: 72px 64px;
+    border-right: 0.5px solid var(--parchment);
+  }
+  .section-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orchid);
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--parchment);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--charcoal);
+    margin-bottom: 36px;
+    line-height: 1.2;
+  }
+  .hours-grid { display: flex; flex-direction: column; }
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 0.5px solid var(--parchment);
+    font-size: 14px;
+  }
+  .hours-row:last-child { border-bottom: none; }
+  .hours-day { color: var(--taupe); letter-spacing: 0.03em; }
+  .hours-time { color: var(--charcoal); font-weight: 400; }
+  .hours-time.closed { color: var(--taupe-light); font-style: italic; }
+
+  .hours-cta {
+    margin-top: 40px;
+    padding: 14px 28px;
+    border: 0.5px solid var(--orchid-light);
+    background: transparent;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orchid);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .hours-cta:hover { background: var(--orchid); color: var(--ivory); border-color: var(--orchid); }
+  .hours-cta svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+  /* MAP PANEL */
+  .map-panel {
+    background: var(--charcoal);
+    padding: 72px 64px;
+    display: flex;
+    flex-direction: column;
+  }
+  .map-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orchid-light);
+    margin-bottom: 20px;
+  }
+  .map-title {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--ivory);
+    margin-bottom: 32px;
+    line-height: 1.2;
+  }
+  .map-placeholder {
+    flex: 1;
+    min-height: 260px;
+    background: rgba(255,255,255,0.03);
+    border: 0.5px solid rgba(196,168,181,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .map-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(196,168,181,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(196,168,181,0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .map-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--orchid-light);
+    position: relative; z-index: 1;
+    box-shadow: 0 0 0 6px rgba(196,168,181,0.12);
+  }
+  .map-label-sm {
+    font-size: 11px;
+    color: var(--taupe-light);
+    position: relative; z-index: 1;
+    letter-spacing: 0.06em;
+    font-family: var(--sans);
+  }
+  .map-address {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ivory);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .map-directions {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orchid-light);
+    display: inline-flex; align-items: center; gap: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .map-directions:hover { color: var(--ivory); }
+  .map-directions svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    background: var(--white);
+    padding: 80px 48px;
+    text-align: center;
+    border-top: 0.5px solid var(--parchment);
+  }
+  .test-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orchid);
+    margin-bottom: 14px;
+  }
+  .test-heading {
+    font-family: var(--serif);
+    font-size: 42px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--charcoal);
+    margin-bottom: 56px;
+  }
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .test-card {
+    background: var(--ivory);
+    border: 0.5px solid var(--parchment);
+    padding: 36px 32px;
+    text-align: left;
+    position: relative;
+  }
+  .test-card::before {
+    content: '\201C';
+    font-family: var(--serif);
+    font-size: 72px;
+    color: var(--orchid-light);
+    position: absolute;
+    top: 10px; left: 22px;
+    line-height: 1;
+  }
+  .test-text {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-style: italic;
+    color: var(--taupe);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    padding-top: 24px;
+  }
+  .test-meta { display: flex; align-items: center; gap: 10px; }
+  .test-avatar {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--orchid-pale);
+    border: 0.5px solid var(--orchid-light);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--orchid);
+    flex-shrink: 0;
+  }
+  .test-name { font-size: 12px; font-weight: 400; color: var(--charcoal); letter-spacing: 0.04em; }
+  .test-stars { display: flex; gap: 2px; margin-left: auto; }
+  .star { font-size: 11px; color: var(--bronze); }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    padding: 44px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-top: 0.5px solid rgba(255,255,255,0.06);
+  }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--ivory);
+    letter-spacing: 0.02em;
+  }
+  .footer-logo span { color: var(--orchid-light); }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--taupe-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--ivory); }
+  .footer-copy { font-size: 11px; color: var(--taupe-light); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate { opacity: 0; }
+  .animate.visible { animation: fadeUp 0.7s ease forwards; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 60px 32px; }
+    .hero-right { padding: 60px 32px; }
+    .hero-title { font-size: 44px; }
+    .info-section { grid-template-columns: 1fr; }
+    .hours-panel { padding: 56px 32px; }
+    .map-panel { padding: 56px 32px; }
+    .test-grid { grid-template-columns: 1fr; max-width: 480px; }
+    .trust-bar { gap: 24px; }
+    .trust-sep { display: none; }
+    footer { flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Blue <span>Orchid</span> Day Spa</div>
+  <div class="nav-links">
+    <a href="#">Services</a>
+    <a href="#">About</a>
+    <a href="#">Gallery</a>
+    <a href="#">Contact</a>
+  </div>
+  <button class="nav-cta">Book Now</button>
+</nav>
+
+<!-- HERO SPLIT -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow animate">Mansfield, Texas</div>
+    <h1 class="hero-title animate">Begin Your<br><em>Wellness</em><br>Journey</h1>
+    <p class="hero-subtitle animate">Every experience at Blue Orchid is tailored to you — unhurried, intentional, and deeply restorative.</p>
+
+    <div class="contact-quick animate">
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Location</div>
+          <div class="contact-value">2401 Calender Rd, Suite 107<br>Mansfield, TX 76063</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.07 6.07l1.14-1.14a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-value"><a href="tel:8174052401">(817) 405-2401</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Book Online</div>
+          <div class="contact-value">Available 24/7 via our booking portal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="form-header animate">
+      <div class="form-eyebrow">Reach Out</div>
+      <h2 class="form-title">Request a<br>Consultation</h2>
+      <p class="form-desc">Tell us how we can serve you. We respond to every inquiry within one business day.</p>
+    </div>
+
+    <div class="form-row animate">
+      <div class="form-group">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" placeholder="Jenny">
+      </div>
+      <div class="form-group">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" placeholder="Williams">
+      </div>
+    </div>
+
+    <div class="form-group animate">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="you@email.com">
+    </div>
+
+    <div class="form-group animate">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="(817) 000-0000">
+    </div>
+
+    <div class="form-group animate">
+      <label for="service">Service of Interest</label>
+      <select id="service">
+        <option value="" disabled selected>Select a service...</option>
+        <option>Massage Therapy</option>
+        <option>Deep Facial Treatment</option>
+        <option>Eyelash Services</option>
+        <option>Body Treatments</option>
+        <option>Couples Package</option>
+        <option>Custom / Not sure yet</option>
+      </select>
+    </div>
+
+    <div class="form-group animate">
+      <label for="message">Anything you'd like us to know?</label>
+      <textarea id="message" placeholder="Special requests, preferences, or questions..."></textarea>
+    </div>
+
+    <button class="submit-btn animate">Send Inquiry &rarr;</button>
+    <p class="form-note animate">Your information is kept private and never shared. We'll respond within 24 hours.</p>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <span class="trust-text">Certified Therapists</span>
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <span class="trust-text">Guest-Centered Experience</span>
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <span class="trust-text">Flexible Scheduling</span>
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    <span class="trust-text">Welcoming to All Guests</span>
+  </div>
+</div>
+
+<!-- HOURS + MAP -->
+<section class="info-section">
+  <div class="hours-panel">
+    <div class="section-eyebrow">Plan Your Visit</div>
+    <h2 class="section-title">Hours of<br>Operation</h2>
+    <div class="hours-grid">
+      <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">10:00 am – 7:00 pm</span></div>
+      <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">10:00 am – 7:00 pm</span></div>
+      <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">10:00 am – 7:00 pm</span></div>
+      <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">10:00 am – 7:00 pm</span></div>
+      <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">10:00 am – 7:00 pm</span></div>
+      <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">9:00 am – 5:00 pm</span></div>
+      <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time closed">By appointment</span></div>
+    </div>
+    <button class="hours-cta">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Book an Appointment
+    </button>
+  </div>
+
+  <div class="map-panel">
+    <div class="map-eyebrow">Find Us</div>
+    <h2 class="map-title">Located in<br>Mansfield, TX</h2>
+    <div class="map-placeholder">
+      <div class="map-grid"></div>
+      <div class="map-dot"></div>
+      <span class="map-label-sm">2401 Calender Rd, Suite 107</span>
+    </div>
+    <p class="map-address">2401 Calender Rd, Suite 107<br>Mansfield, Texas 76063</p>
+    <a href="https://maps.google.com/?q=2401+Calender+Rd+Ste+107+Mansfield+TX+76063" target="_blank" class="map-directions">
+      <svg viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+      Get Directions
+    </a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="test-eyebrow">Guest Experiences</div>
+  <h2 class="test-heading">Words from those we've served</h2>
+  <div class="test-grid">
+    <div class="test-card">
+      <p class="test-text">Jenny is the best! I haven't had this much relief in my back in a while. She really knows how to target your problem areas and work them.</p>
+      <div class="test-meta">
+        <div class="test-avatar">R</div>
+        <span class="test-name">Reviewed on Google</span>
+        <div class="test-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      </div>
+    </div>
+    <div class="test-card">
+      <p class="test-text">My skin feels so clean and refreshed. I already see a lot of improvement. I will definitely be booking another facial very soon!</p>
+      <div class="test-meta">
+        <div class="test-avatar">M</div>
+        <span class="test-name">Reviewed on Google</span>
+        <div class="test-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      </div>
+    </div>
+    <div class="test-card">
+      <p class="test-text">Britney has great technique. My skin felt so luxurious after she finished. Christy is by far the best massage therapist in DFW.</p>
+      <div class="test-meta">
+        <div class="test-avatar">K</div>
+        <span class="test-name">Reviewed on Google</span>
+        <div class="test-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Blue <span>Orchid</span> Day Spa</div>
+  <div class="footer-links">
+    <a href="#">Services</a>
+    <a href="#">About</a>
+    <a href="#">Policies</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="footer-copy">&copy; 2025 Blue Orchid Day Spa &middot; Mansfield, TX</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationDelay = (i * 0.08) + 's';
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
